@@ -8,7 +8,14 @@ export class GeminiService {
   private ai: GoogleGenAI;
 
   constructor() {
-    this.ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+    this.ai = new GoogleGenAI({ apiKey: (window as any).GEMINI_API_KEY || '' });
+  }
+
+  updateApiKey(key: string) {
+    (window as any).GEMINI_API_KEY = key;
+    (window as any).API_KEY = key;
+    localStorage.setItem('GEMINI_API_KEY', key);
+    this.ai = new GoogleGenAI({ apiKey: key });
   }
 
   /**

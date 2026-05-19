@@ -62,6 +62,7 @@ export class AppComponent {
 
   // --- State Signals ---
   activeTab = signal<'lab' | 'gallery' | 'studio' | 'showcase'>('lab');
+  apiKey = signal(localStorage.getItem('GEMINI_API_KEY') || '');
   
   // Data
   subjects = signal<SubjectModel[]>([]);
@@ -175,6 +176,11 @@ export class AppComponent {
     });
   }
   
+  onApiKeyChange(val: string) {
+    this.apiKey.set(val);
+    this.gemini.updateApiKey(val);
+  }
+
   // --- Actions: Notification ---
   addNotification(message: string, type: 'error' | 'success' | 'info', duration: number = 7000) {
     const id = crypto.randomUUID();
