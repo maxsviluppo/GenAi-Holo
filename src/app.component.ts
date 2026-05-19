@@ -61,7 +61,7 @@ export class AppComponent {
   private sanitizer = inject(DomSanitizer);
 
   // --- State Signals ---
-  activeTab = signal<'lab' | 'gallery' | 'studio' | 'showcase'>('lab');
+  activeTab = signal<'lab' | 'gallery' | 'studio' | 'showcase' | 'info'>('lab');
   apiKey = signal(localStorage.getItem('GEMINI_API_KEY') || '');
   
   // Data
@@ -196,7 +196,7 @@ export class AppComponent {
 
 
   // --- Actions: Navigation ---
-  setView(view: 'lab' | 'gallery' | 'studio' | 'showcase') {
+  setView(view: 'lab' | 'gallery' | 'studio' | 'showcase' | 'info') {
     this.activeTab.set(view);
   }
 
