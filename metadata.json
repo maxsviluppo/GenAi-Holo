@@ -1,0 +1,6 @@
+{
+  "name": "GenAI Holo-Lab",
+  "description": "A futuristic laboratory to create 3D subjects and generate videos or images placing them in new contexts using Gemini Veo and Imagen.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
